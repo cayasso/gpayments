@@ -56,6 +56,8 @@ const plan = await gpApi.plans.create({
 
 You will need your [4Geeks Payment](https://4geeks.io/payments/) `Client ID` and a `Client Secret` in order to use this library.
 
+For additional information on all supported parameters of each method you can visit the official [4Geeks Payment API Documentation](http://docs.payments.4geeks.io/).
+
 ### gpayments(options)
 
 Create a new instance of `gpayment` api by passing the required `clientId` and `clientSecret` properties.
