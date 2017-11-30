@@ -67,6 +67,19 @@ const api = gpayments({
 })
 ```
 
+You can also set the `GPAYMENTS_CLIENT_ID` and `GPAYMENTS_SECRET_ID` environment variables instead of passing `clientId` and `clientSecret` properties directly.
+
+For example, lets say somewhere in your app you have:
+
+```js
+const api = gpayments()
+```
+
+You can startup your node application like this:
+
+```bash
+GPAYMENTS_CLIENT_ID=abc123 GPAYMENTS_SECRET_ID=123abcsecret node app.js
+```
 ### api.me.fetch()
 
 Fetch my account information.
