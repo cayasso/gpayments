@@ -1,6 +1,6 @@
 {
   "name": "gpayments",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple 4Geeks Payments API wrapper for NodeJS.",
   "main": "./lib/index",
   "author": {
