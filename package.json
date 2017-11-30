@@ -1,0 +1,50 @@
+{
+  "name": "gpayments",
+  "version": "0.1.0",
+  "description": "Simple 4Geeks Payments API wrapper for NodeJS.",
+  "main": "./lib/index",
+  "author": {
+    "name": "Jonathan Brumley",
+    "email": "cayasso@gmail.com"
+  },
+  "scripts": {
+    "test": "xo && mocha",
+    "build": "npm run clean && ./node_modules/.bin/babel src -d lib",
+    "prepare": "npm run build",
+    "clean": "rm -rf lib/"
+  },
+  "repository": "cayasso/gpayments",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint-config-prettier": "^2.8.0",
+    "mocha": "^4.0.1",
+    "pre-commit": "1.2.2",
+    "should": "^13.1.3",
+    "xo": "^0.18.2"
+  },
+  "pre-commit": [
+    "test"
+  ],
+  "xo": {
+    "extends": [
+      "prettier"
+    ],
+    "ignores": [
+      "test/**",
+      "examples/**"
+    ],
+    "rules": {
+      "object-curly-spacing": 0,
+      "no-unused-expressions": 0,
+      "no-negated-condition": 0,
+      "camelcase": 0,
+      "new-cap": 0
+    }
+  }
+}
