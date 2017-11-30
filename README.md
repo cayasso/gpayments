@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/cayasso/gpayments.png?branch=master)](https://travis-ci.org/cayasso/gpayments)
 [![NPM version](https://badge.fury.io/js/gpayments.png)](http://badge.fury.io/js/gpayments)
 
-Simple [4Geeks Payments API](https://4geeks.io/payments/) wrapper for NodeJS.
+Simple [4Geeks Payments](https://4geeks.io/payments/) API Client for NodeJS.
 
 ## Installation
 
