@@ -105,14 +105,14 @@ console.log(account)
 Fetch customers. You can also pass a customer key to fetch an specific customer.
 
 ```js
-const customers = await api.me.fetch()
+const customers = await api.customers.fetch()
 
 console.log(customers)
 ```
 
 Or to fetch a single customer.
 ```js
-const customer = await api.me.fetch('GfGsOKTZVlTKyn7khcihXYuEUx0nBxb')
+const customer = await api.customers.fetch('GfGsOKTZVlTKyn7khcihXYuEUx0nBxb')
 
 console.log(customer)
 ```
