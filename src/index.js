@@ -5,7 +5,11 @@ const axios = require('axios')
 const getToken = require('./token')
 const { CLIENT_ID, CLIENT_SECRET, API_URL } = require('./config')
 
-const res = res => res.data
+const onSuccess = res => res.data
+const onError = error => (error.response && error.response.data)
+  ? Promise.reject(error.response.data.detail || error.response.data)
+  : Promise.reject(error.response || error.message)
+
 const methods = ['get', 'put', 'post', 'patch', 'delete']
 
 module.exports = ({ clientId = CLIENT_ID, clientSecret = CLIENT_SECRET } = {}) => {
@@ -22,7 +26,9 @@ module.exports = ({ clientId = CLIENT_ID, clientSecret = CLIENT_SECRET } = {}) =
     return config
   })
 
-  const [ get, put, post, patch, del ] = methods.map(method => (...args) => client[method](...args).then(res))
+  const [ get, put, post, patch, del ] = methods.map(method => (...args) =>
+    client[method](...args).then(onSuccess).catch(onError)
+  )
 
   const me = {
     fetch: () => get('/accounts/me/'),
