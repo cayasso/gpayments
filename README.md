@@ -90,7 +90,7 @@ const account = await api.me.fetch()
 console.log(account)
 ```
 
-### api.me.update()
+### api.me.update(data)
 
 Update my account information.
 
