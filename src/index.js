@@ -53,7 +53,8 @@ module.exports = ({ clientId = CLIENT_ID, clientSecret = CLIENT_SECRET } = {}) =
 
   const plans = {
     fetch: () => get('/plans/mine/'),
-    create: (data) => post('/plans/create/', data)
+    create: (data) => post('/plans/create/', data),
+    remove: key => del(`/plans/mine/${key}/`)
   }
 
   const subscriptions = {
