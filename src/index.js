@@ -39,7 +39,7 @@ module.exports = ({ clientId = CLIENT_ID, clientSecret = CLIENT_SECRET } = {}) =
     create: (data) => post('/accounts/customers/', data),
     fetch: (key) => key
       ? get(`/accounts/customer/${key}/`)
-      : get(`/accounts/customers/`),
+      : get('/accounts/customers/'),
     update: (key, data) => patch(`/accounts/customer/${key}/`, data),
     remove: (key) => del(`/accounts/customer/${key}/`)
   }
@@ -48,11 +48,15 @@ module.exports = ({ clientId = CLIENT_ID, clientSecret = CLIENT_SECRET } = {}) =
     create: (data = {}) => ('customer_key' in data)
       ? post('/charges/create/', data)
       : post('/charges/simple/create/', data),
-    logs: () => get('/charges/logs/')
+    logs: (id) => id
+      ? get(`/charges/logs/${id}/`)
+      : get('/charges/logs/'),
   }
 
   const plans = {
-    fetch: () => get('/plans/mine/'),
+    fetch: (key) => key
+      ? get(`/plans/mine/${key}/`)
+      : get('/plans/mine/'),
     create: (data) => post('/plans/create/', data),
     remove: key => del(`/plans/mine/${key}/`)
   }
@@ -60,7 +64,9 @@ module.exports = ({ clientId = CLIENT_ID, clientSecret = CLIENT_SECRET } = {}) =
   const subscriptions = {
     subscribe: (data) => post('/plans/subscribe/', data),
     unsubscribe: (id) => del('/plans/un-subscribe/', { data: { subscription_id: id } }),
-    fetch: () => get('/plans/subscriptions/')
+    fetch: (id) => id
+      ? get(`/plans/subscription/${id}/`)
+      : get('/plans/subscriptions/'),
   }
 
   return { me, plans, charges, customers, subscriptions }

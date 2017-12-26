@@ -65,6 +65,7 @@ describe('gpayments', () => {
       const api = createApi({ clientId: 'abc', clientSecret: 'abc' })
       should(api.plans.create).be.a.Function()
       should(api.plans.fetch).be.a.Function()
+      should(api.plans.remove).be.a.Function()
     })
   })
 

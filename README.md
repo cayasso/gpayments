@@ -155,14 +155,21 @@ Delete a customer.
 await api.customers.remove('GfGsOKTZVlTKyn7khcihXYuEUx0nBxb')
 ```
 
-### api.plans.fetch()
+### api.plans.fetch([key])
 
-Fetch all plans.
+Fetch all plans. You can also pass a plan key to fetch an specific plan.
 
 ```js
 const plans = await api.plans.fetch()
 
 console.log(plans)
+```
+
+Or to fetch a single plan.
+```js
+const plan = await api.plans.fetch('ftmDCyPmun7QiKah5PrP2f')
+
+console.log(plan)
 ```
 
 ### api.plans.create(data)
@@ -184,14 +191,29 @@ const plan = await api.plans.create({
 console.log(plan)
 ```
 
-### api.subscriptions.fetch()
+### api.plans.remove(key)
 
-Fetch all subscriptions.
+Delete a plan.
+
+```js
+await api.plans.remove('ftmDCyPmun7QiKah5PrP2f')
+```
+
+### api.subscriptions.fetch([id])
+
+Fetch all subscriptions. You can also pass a subscription id to fetch an specific subscription.
 
 ```js
 const subscriptions = await api.subscriptions.fetch()
 
 console.log(subscriptions)
+```
+
+Or to fetch a single subscription.
+```js
+const subscription = await api.subscriptions.fetch('BtZ3TxvsEvFh2x')
+
+console.log(subscription)
 ```
 
 ### api.subscriptions.subscribe(data)
@@ -205,7 +227,7 @@ await api.subscriptions.subscribe({
 })
 ```
 
-### api.subscriptions.unsubscribe(subscription_id)
+### api.subscriptions.unsubscribe(id)
 
 Delete a subscription.
 
@@ -243,14 +265,21 @@ await api.charges.create({
 })
 ```
 
-### api.charges.logs()
+### api.charges.logs([id])
 
-List all charges logs.
+List all charges logs. You can also pass a charge id to fetch an specific charge log.
 
 ```js
 const logs = await api.charges.logs()
 
 console.log(logs)
+```
+
+Or to fetch a single charge log.
+```js
+const log = await api.charges.logs('1BTvroCqnAM123fqhvZw4dlkHk')
+
+console.log(log)
 ```
 
 ## Run tests
